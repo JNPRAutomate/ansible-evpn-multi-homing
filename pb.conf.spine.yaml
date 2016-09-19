@@ -1,0 +1,13 @@
+---
+- name: Create configuration for spine devices
+  hosts: spine
+  connection: local
+  gather_facts: no
+  pre_tasks:
+    - include_vars: "{{ topology_file }}"
+  roles:
+    - junos-system
+    - underlay-ebgp
+    - overlay-evpn-qfx-l3
+    - overlay-evpn-access
+    - build-config

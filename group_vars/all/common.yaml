@@ -1,0 +1,5 @@
+# System variable used to define temporary directory
+# please update tmp_dir variable if needed
+tmp_dir: /tmp/build
+build_dir: "{{ tmp_dir }}/{{ inventory_hostname }}/tmp"
+junos_conf: "config/{{ inventory_hostname }}.conf"

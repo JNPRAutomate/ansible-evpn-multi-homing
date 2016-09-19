@@ -1,0 +1,25 @@
+
+mclag:
+  mac: 00:11:22:33:33:01
+  has_l3: false
+  links:
+    iccp:
+      links:
+        - "{{ topo[inventory_hostname].port5.name }}"
+    icl:
+      links:
+        - "{{ topo[inventory_hostname].port6.name }}"
+    mcae:
+      to_aggregation:
+        key: 2
+        links:
+          - "{{ topo[inventory_hostname].port1.name }}"
+          - "{{ topo[inventory_hostname].port2.name }}"
+          - "{{ topo[inventory_hostname].port3.name }}"
+          - "{{ topo[inventory_hostname].port4.name }}"
+      server1:
+        description: "{{ topo[inventory_hostname].port7.peer }}"
+        key: 3
+        vlans: ['100-199']
+        links:
+          - "{{ topo[inventory_hostname].port7.name }}"

@@ -1,0 +1,22 @@
+underlay:
+    local:
+        asn: 60014
+    community: target:12345:111
+    neighbors:
+
+## Spine
+      - interface: "{{ topo[inventory_hostname].port5.name }}"
+        name: "{{ topo[inventory_hostname].port5.peer }}"
+        asn: 60013
+        peer_ip: "{{ p2p.22.1}}"
+        local_ip: "{{ p2p.22.2}}"
+      - interface: "{{ topo[inventory_hostname].port6.name }}"
+        name: "{{ topo[inventory_hostname].port6.peer }}"
+        asn: 60012
+        peer_ip: "{{ p2p.21.1}}"
+        local_ip: "{{ p2p.21.2}}"
+      - interface: "{{ topo[inventory_hostname].port7.name }}"
+        name: "{{ topo[inventory_hostname].port7.peer }}"
+        asn: 60011
+        peer_ip: "{{ p2p.17.1}}"
+        local_ip: "{{ p2p.17.2}}"

@@ -1,0 +1,2 @@
+overlay:
+    neighbors: [ 100.0.0.12 ]   ## Used by Leaf
